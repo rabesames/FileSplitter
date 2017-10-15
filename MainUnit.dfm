@@ -11,6 +11,7 @@ object MainForm: TMainForm
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   OnCreate = FormCreate
   DesignSize = (
     444
@@ -64,7 +65,7 @@ object MainForm: TMainForm
     Text = 'OriginalFileEdit'
   end
   object MaxSizeUpDown: TUpDown
-    Left = 159
+    Left = 158
     Top = 35
     Width = 16
     Height = 21
