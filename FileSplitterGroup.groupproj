@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{AF4E3C7A-68DD-4DAF-9664-56C081C5D167}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FileSplitter.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FileSplitterC.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FileSplitter">
+        <MSBuild Projects="FileSplitter.dproj"/>
+    </Target>
+    <Target Name="FileSplitter:Clean">
+        <MSBuild Projects="FileSplitter.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FileSplitter:Make">
+        <MSBuild Projects="FileSplitter.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FileSplitterC">
+        <MSBuild Projects="FileSplitterC.dproj"/>
+    </Target>
+    <Target Name="FileSplitterC:Clean">
+        <MSBuild Projects="FileSplitterC.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FileSplitterC:Make">
+        <MSBuild Projects="FileSplitterC.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FileSplitter;FileSplitterC"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FileSplitter:Clean;FileSplitterC:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FileSplitter:Make;FileSplitterC:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
